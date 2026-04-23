@@ -1,0 +1,1578 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+:root {
+  scroll-behavior: smooth;
+  --secondary-color: #155dfc;
+}
+
+body {
+  margin: 0;
+  font-family: "IBM Plex Sans Arabic", sans-serif;
+}
+::selection {
+  color: white;
+  background-color: #3b82f6;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+li {
+  list-style: none;
+}
+img {
+  width: 100%;
+}
+button {
+  cursor: pointer;
+  border: unset;
+  color: inherit;
+  display: block;
+  outline: none;
+}
+.iconShadow {
+  box-shadow:
+    0 10px 15px -3px rgba(48, 128, 255, 0.2),
+    0 4px 6px -4px rgba(48, 128, 255, 0.2);
+}
+.cardsShadow {
+  box-shadow:
+    0 1px 3px 0 rgba(0, 0, 0, 0.1),
+    0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+/* aboutCards class*/
+
+.aboutCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+  margin-bottom: 20px;
+}
+.aboutCard h5 {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+  color: #101828;
+}
+.aboutCard > span {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #4a5565;
+  transition: all 0.2s ease-in;
+}
+.aboutCard span:hover {
+  color: #101828;
+}
+
+/* -------------------side bar section-------------------------------------- */
+.sideBar {
+  height: 100vh;
+  overflow-y: auto;
+  padding: 24px;
+  position: fixed;
+  z-index: 1000;
+  right: 0;
+  width: 256px;
+  border-left: 1px solid #eeeeee;
+
+  /* to handle the scroll bar   */
+  scrollbar-width: thin;
+
+  scrollbar-color: #9ca3af4d transparent;
+}
+
+/* @media (min-width: 768px) {
+  
+} */
+.logo {
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+  margin-bottom: 30px;
+}
+.logo > span {
+  height: 55px;
+  width: 55px;
+  border-radius: 15px;
+  background-color: #3942e6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo span i {
+  color: white;
+  font-size: 20px;
+}
+.logo h1 {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 40px;
+}
+.logo div span {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: #4a5565;
+}
+.sideBar .mainContent div {
+  margin-bottom: 8px;
+  color: #6a7282;
+  transition: all 0.3s ease-in;
+  border-radius: 12px;
+  padding: 12px 18px;
+}
+.sideBar .mainContent div:hover {
+  background-color: #f9fafb;
+}
+/* i should make div.active to apply the property on it */
+.sideBar .barContent .mainContent div.active {
+  color: var(--secondary-color);
+  background-color: #eff6ff;
+  border: 1px solid #dbeafe;
+}
+.sideBar .mainContent a {
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+.sideBar .mainContent a i {
+  width: 20px;
+}
+.mainContent > div a span:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.barContent h4 {
+  color: #364153;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 30px 0 15px;
+}
+
+.barContent .otherContent div {
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+  padding: 12px 18px;
+  cursor: pointer;
+  margin-bottom: 12px;
+  border-radius: 15px;
+  transition:
+    background-color 0.3s ease-in,
+    padding-right 0.2s ease-in;
+}
+
+.otherContent div span {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-in;
+}
+.otherContent div:nth-child(1) span {
+  background-color: #eaf3ff;
+  color: #155dfc;
+}
+.otherContent div:nth-child(2) span {
+  background-color: #e6faee;
+  color: #00a63e;
+}
+.otherContent div:nth-child(3) span {
+  background-color: #f7edff;
+  color: #9810fa;
+}
+.otherContent div:nth-child(4) span {
+  background-color: #fff0e6;
+  color: #f65815;
+}
+.otherContent div:nth-child(1):hover span {
+  background-color: #dbe8fc;
+}
+.otherContent div:nth-child(2):hover span {
+  background-color: #d5f3e1;
+}
+.otherContent div:nth-child(3):hover span {
+  background-color: #efe0fc;
+}
+.otherContent div:nth-child(4):hover span {
+  background-color: #fce5d5;
+}
+
+/* content section  */
+
+.content {
+  padding: 32px calc(32px + 256px) 32px 32px;
+  background-color: #f9fafb;
+}
+.content .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fafcfe;
+  border-radius: 16px;
+  border: 1px solid #f3f4f680;
+  padding: 24px;
+  margin-bottom: 40px;
+}
+.content .header .rightHeader {
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+}
+/* edit on the loge style */
+.rightHeader .logo {
+  margin-bottom: 0;
+}
+.connected {
+  display: flex;
+  align-items: center;
+  column-gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid #dbfce7;
+  border-radius: 10px;
+  background-color: #f0fdf4;
+  position: relative;
+  color: #008236;
+  line-height: 20px;
+  font-weight: 500;
+  font-size: 14px;
+}
+.connected .animated-point {
+  background-color: #00c950;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
+.leftHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 15px;
+}
+.leftHeader > div:first-child {
+  display: flex;
+  column-gap: 10px;
+}
+.leftHeader > div > span {
+  color: #6a7282;
+  background-color: #f9fafb;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ebe6e7;
+  border-radius: 12px;
+  transition: all 0.1s ease-in;
+  position: relative;
+}
+
+.leftHeader span:hover {
+  background-color: #f3f4f6;
+}
+.bellIcon::after {
+  content: "2";
+  background-color: red;
+  border-radius: 50%;
+  color: white;
+  line-height: 16px;
+  font-weight: 600;
+  font-size: 12px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  transform: translate(40%, -40%);
+
+  line-height: 1.2;
+}
+.mudabirAccount {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  border-radius: 10px;
+  background-color: white;
+  border: 1px solid #ebe6e7;
+  padding: 8px 16px;
+  transition: all 0.1s ease-in;
+}
+.mudabirAccount:hover {
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+}
+
+.mudabirAccount img {
+  border-radius: 12px;
+  height: 100%;
+  object-fit: cover;
+  width: 40px;
+  height: 40px;
+  border: 3px solid #f6f3f4;
+}
+.rightAccount span {
+  line-height: 20px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #101828;
+}
+.rightAccount p {
+  line-height: 16px;
+  font-weight: 600;
+  font-size: 12px;
+  color: #6a7282;
+}
+
+section.accountDetails {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  column-gap: 30px;
+  margin-bottom: 25px;
+}
+.accountDetails > div {
+  background-color: white;
+  padding: 32px;
+  border-radius: 16px;
+  border: 1px solid #ebe6e7;
+}
+.accountDetails > div > div {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: #6a7282;
+  margin-bottom: 8px;
+}
+.accountDetails > div > p {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 36px;
+  color: #101828;
+  margin-bottom: 8px;
+}
+.accountDetails > div > span {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: #00a63e;
+}
+.accountDetails > div > span i {
+  font-size: 12px;
+}
+.accountDetails div:nth-child(3) span {
+  color: red;
+}
+.mobile {
+  display: none;
+}
+@media (max-width: 667px) {
+  .content div.header {
+    flex-direction: column;
+    row-gap: 20px;
+    justify-content: space-between;
+  }
+
+  .header .leftHeader .mudabirAccount span {
+    display: none;
+  }
+  .content .header div.rightHeader {
+    flex-direction: column;
+    align-self: flex-start;
+  }
+  .content .header div.rightHeader .connected {
+    display: none;
+  }
+  .content .header div.leftHeader {
+    column-gap: 8px;
+    width: 100%;
+  }
+  .leftHeader > div:first-child {
+    display: flex;
+    column-gap: 10px;
+  }
+  .mobile {
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+  .mobile.connected .animated-point {
+    display: inline-block;
+    background-color: #00c950;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    margin-left: 10px;
+  }
+}
+@media (max-width: 767px) {
+  .sideBar {
+    display: none;
+  }
+  /* عشان ميحصلش اوفر رايد عليها لانها نفس  الاسباسيفيتي div.content  لازم احط   */
+  div.content {
+    padding: 16px 16px 32px;
+  }
+  .content .header {
+    padding: 16px;
+  }
+  .header .rightHeader .logo span {
+    width: 48px;
+    height: 48px;
+  }
+  .header .rightHeader .logo h1 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+  }
+  .header .rightHeader .logo h1 + span {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+  }
+  .header .rightHeader .connected span {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+  }
+  .header .leftHeader div.mudabirAccount {
+    column-gap: 3px;
+    padding: 8px 12px;
+    align-self: flex-end;
+  }
+  .header .leftHeader .mudabirAccount span {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+  }
+  .header .leftHeader .mudabirAccount p {
+    display: none;
+  }
+  section.accountDetails {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+  .accountDetails > div > p {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 36px;
+  }
+  section div.container {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(7, auto);
+    grid-template-areas:
+      "activities"
+      "table"
+      "monthlyBills"
+      "budget"
+      "income "
+      "accountSummary"
+      "visa";
+  }
+  .container .activities h5 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+  }
+  .activities .aboutCard h5,
+  .table .aboutCard h5 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+  }
+  .activities .aboutCard span,
+  .table .aboutCard span {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+  }
+  table thead tr {
+    font-weight: 600 !important;
+    line-height: 16px !important;
+    font-size: 12px !important;
+  }
+  table tbody tr > * {
+    font-weight: 500 !important;
+    line-height: 16px !important;
+    font-size: 12px !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 1280px) {
+  .accountDetails > div > p {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+  }
+  .sideBar {
+    width: 64px;
+    padding: 12px;
+    overflow: hidden;
+  }
+  .sideBar .logo > div {
+    display: none;
+  }
+  .sideBar .barContent .mainContent {
+    margin-bottom: 50px;
+  }
+  .sideBar .mainContent a {
+    display: block;
+  }
+  .sideBar .logo > span {
+    width: 40px;
+    height: 40px;
+  }
+  .sideBar .logo > span i {
+    font-size: 15px;
+  }
+  .sideBar .mainContent div {
+    padding: 12px 8px;
+  }
+  .mainContent > div a span:last-child {
+    display: none;
+  }
+  .sideBar .barContent h4 {
+    display: none;
+  }
+  .barContent .otherContent div {
+    padding: 0;
+    margin-bottom: 32px;
+  }
+  .sideBar .barContent .otherContent span {
+    width: 40px;
+    height: 40px;
+  }
+  .sideBar .barContent .otherContent p {
+    display: none;
+  }
+  .content {
+    padding: 32px calc(32px + 64px) 32px 32px;
+  }
+  /* sepcificity */
+  div.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto auto;
+    grid-auto-columns: 1fr;
+    gap: 15px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "activities income"
+      "table table"
+      "monthlyBills accountSummary"
+      "budget visa"
+      "budget visa"
+      /* . => make the card empty */
+      "budget  .";
+  }
+  .budget .budgetCard .aboutBudget {
+    flex-direction: column;
+  }
+  .budget .budgetCard .aboutBudget .totalBudget {
+    width: 100%;
+  }
+  .remainingBudget {
+    align-self: flex-end;
+  }
+  div.budget .anthorBudgetCard > div > div {
+    flex-direction: column;
+  }
+  div.budget .anthorBudgetCard > div div.rightBudget {
+    width: 100%;
+  }
+  .leftBudget {
+    align-self: flex-end;
+  }
+  .budget .anthorBudgetCard > div > div {
+    align-items: flex-start;
+  }
+  .accountSummary .accounts > div {
+    flex-direction: column;
+  }
+  .accountSummary .accounts > div .leftAccount {
+    align-self: flex-start;
+  }
+  .accountSummary .accounts > div .rightAccount {
+    align-self: flex-end;
+  }
+}
+
+@media (min-width: 1023px) {
+  .accountDetails > div > p {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 40px;
+  }
+  .barContent .otherContent div:hover {
+    background-color: #f9fafb;
+    padding-right: 10px;
+  }
+}
+
+/* the last section */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto auto;
+  grid-auto-columns: 1fr;
+  gap: 15px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "activities  table table"
+    "monthlyBills table table"
+    "budget  income visa"
+    "budget  accountSummary visa";
+}
+
+.activities {
+  grid-area: activities;
+  padding: 24px;
+  border: 1px solid #ebe6e7;
+  border-radius: 16px;
+  background-color: white;
+}
+
+.activities h5 {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 28px;
+  margin-bottom: 24px;
+  color: #101828;
+}
+.activitiesCards {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eeeeee;
+}
+.activitiesCards > div {
+  display: flex;
+  align-items: start;
+  column-gap: 15px;
+  border-radius: 10px;
+  padding: 12px;
+  padding: 12px;
+}
+/* to make the right content has the remaining width */
+.activitiesCards > div > div {
+  flex: 1;
+}
+.card1 {
+  margin-bottom: 12px;
+  background-color: #eff6ff;
+  border-left: 4px solid var(--secondary-color);
+}
+.card2 {
+  background-color: #f0fdf4;
+  border-left: 4px solid #00a63e;
+}
+.activitiesCards > div > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.activitiesCards .card1 > span {
+  background-color: #dbeafe;
+}
+.activitiesCards .card1 > span i {
+  color: var(--secondary-color);
+}
+.activitiesCards .card2 > span {
+  background-color: #f0fdf4;
+}
+.activitiesCards .card2 > span i {
+  color: #00a63e;
+}
+
+.activitiesCards > div > div > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.activitiesCards > div > div > div p {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  margin-bottom: 4px;
+}
+.activitiesCards .card1 span {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  color: #155dfb;
+}
+.activitiesCards .card2 span {
+  color: #00c950;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.activitiesCards > div > div > p {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: #4a5565;
+  margin-bottom: 8px;
+}
+
+.activitiesCards > div > div > span {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: #6a7282;
+}
+
+.activities a {
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  color: #1447e6;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.monthlyBills {
+  grid-area: monthlyBills;
+  padding: 24px;
+  border: 1px solid #ebe6e7;
+  border-radius: 16px;
+  background-color: white;
+}
+
+.monthlyBills .totalBills {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.totalBills p {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 36px;
+  color: #101828;
+}
+.totalBills span {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: #6a7282;
+}
+.monthlyBills .billsDetails {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+}
+.billsDetails > div {
+  padding: 12px;
+  text-align: center;
+  background-color: #fbf9fa;
+  border: 1px solid #f6f3f4;
+  border-radius: 12px;
+}
+.billsDetails > div > span {
+  width: 35px;
+  height: 35px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 5px;
+}
+.billsDetails .wifi span {
+  background-color: #dbeafe;
+}
+.billsDetails .energy span {
+  background-color: #fef9c2;
+}
+.billsDetails .phone span {
+  background-color: #dbfce7;
+}
+.billsDetails .netflix span {
+  background-color: #ffe2e2;
+}
+.billsDetails .wifi span i {
+  color: #155dfc;
+}
+.billsDetails .energy span i {
+  color: #d08700;
+}
+.billsDetails .phone span i {
+  color: #00a63e;
+}
+.billsDetails .netflix span i {
+  color: #e7000b;
+}
+.billsDetails > div .billsName {
+  color: #6a7282;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+}
+.billsDetails > div .billsPrice {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #101828;
+}
+.billsDetails > div .billsTime {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+}
+.billsDetails .wifi .billsTime {
+  color: #fb2c36;
+}
+.billsDetails .energy .billsTime {
+  color: #ff6900;
+}
+.billsDetails .phone .billsTime {
+  color: #00c950;
+}
+.billsDetails .netflix .billsTime {
+  color: #6a7282;
+}
+
+/* ---------------budget section---------------*/
+.budget {
+  grid-area: budget;
+  padding: 24px;
+  border: 1px solid #ebe6e7;
+  border-radius: 16px;
+  background-color: white;
+}
+.budgetCard {
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #dbeafe;
+  /* linear gradient background; */
+  background: linear-gradient(90deg, #eff6ff, #eef2ff);
+  margin-bottom: 24px;
+}
+.budgetCard .aboutBudget {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.totalBudget p {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #155dfb;
+}
+.totalBudget span {
+  color: #1c398e;
+  font-weight: 700;
+  line-height: 32px;
+  font-size: 24px;
+}
+.remainingBudget p {
+  font-weight: 600;
+  line-height: 20px;
+  font-size: 14px;
+  color: #6a7282;
+}
+.remainingBudget span {
+  font-weight: 600;
+  line-height: 28px;
+  font-size: 18px;
+  color: #00a63e;
+}
+
+.budgetCard .budgetPercentage div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.budgetCard .budgetPercentage div p {
+  font-weight: 600;
+  line-height: 16px;
+  font-size: 12px;
+  color: #4a5565;
+}
+.totalbugetPercentage {
+  background-color: #e5e7eb;
+  border-radius: 12px;
+  height: 8px;
+  position: relative;
+  /* without position ==> the inner div deosn't have the ful height of its parent */
+}
+.totalbugetPercentage .coloredDiv {
+  height: 100%;
+  width: 82.5%;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  /* by linear gradient generator */
+  background: #2c7fff;
+  background: linear-gradient(
+    90deg,
+    rgba(44, 127, 255, 1) 0%,
+    rgba(97, 95, 255, 1) 50%
+  );
+  border-radius: 12px;
+}
+
+.anthorBudgetCard > div {
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: #f9fafb80;
+  border: 1px solid #e5e7ebcc;
+  border-radius: 12px;
+  transition: 0.3s all;
+}
+
+.anthorBudgetCard > div:hover {
+  box-shadow: 0 4px 6px -1px #0000001a;
+  background: #f3f4f6cc;
+  border-color: #d1d5dbe6;
+  transform: translateY(-2px);
+}
+
+.anthorBudgetCard > div > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.anthorBudgetCard > div > div > .rightBudget {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+.anthorBudgetCard .rightBudget > span {
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rightBudget > div p {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+  color: #101828;
+}
+.rightBudget > div span {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  color: #6a7282;
+}
+
+.leftBudget p {
+  font-weight: 600;
+  line-height: 24px;
+  font-size: 16px;
+  color: #101828;
+}
+.leftBudget span {
+  font-weight: 500;
+  line-height: 16px;
+  font-size: 12px;
+  padding: 2px 4px;
+  border-radius: 25px;
+  /* color: rgb(22, 101, 52); */
+}
+/* funny card */
+.funny .rightBudget > span {
+  background-color: #ffedd4;
+}
+.funny .rightBudget > span i {
+  color: #f54900;
+}
+.funny .leftBudget span {
+  background-color: #dcfce7;
+}
+
+.anthorBudgetCard > div .percentage {
+  height: 8px;
+  background-color: #e5e7eb;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+.funny + .percentage .innerDiv {
+  height: 100%;
+  width: 50%;
+  border-radius: 12px;
+  background-color: #f54900;
+}
+
+/* bills card */
+.bills .rightBudget > span {
+  background-color: #fee2e2;
+}
+.bills .rightBudget > span i {
+  color: #e7000b;
+}
+.bills .leftBudget span {
+  background-color: #fee2e2;
+  color: rgb(153, 27, 27);
+}
+
+.bills + .percentage .innerDiv {
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
+  background-color: #e7000b;
+}
+
+/* care card */
+.care .rightBudget > span {
+  background-color: #fce7f3;
+}
+.care .rightBudget > span i {
+  color: #e60076;
+}
+.care .leftBudget span {
+  background-color: #fef3c7;
+  color: rgb(146, 64, 14);
+}
+
+.care + .percentage .innerDiv {
+  height: 100%;
+  width: 80%;
+  border-radius: 12px;
+  background-color: #e60076;
+}
+
+/* supplies */
+.supplies .rightBudget > span {
+  background-color: #dcfce7;
+}
+.supplies .rightBudget > span i {
+  color: #00a63e;
+}
+.supplies .leftBudget span {
+  background-color: #dcfce7;
+  color: rgb(22, 101, 52);
+}
+
+.supplies + .percentage .innerDiv {
+  height: 100%;
+  width: 86%;
+  border-radius: 12px;
+  background-color: #00a63e;
+}
+
+/* ----------------------table section----------------- */
+.table {
+  grid-area: table;
+  padding: 24px;
+  border: 1px solid #ebe6e7;
+  border-radius: 16px;
+  background-color: white;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #9ca3af4d transparent;
+}
+
+table {
+  border-collapse: collapse;
+  min-width: 600px;
+  width: 100%;
+}
+thead tr {
+  border-bottom: 1px solid #f3f4f6;
+  font-weight: 600;
+  line-height: 20px;
+  font-size: 14px;
+  color: #364153;
+  padding-bottom: 20px;
+}
+thead th {
+  text-align: right;
+  padding: 12px;
+}
+
+tbody tr {
+  border-bottom: 1px solid #f9fafb;
+}
+tbody td {
+  padding: 16px 8px;
+}
+tbody tr:last-child {
+  border-bottom: none;
+}
+
+/* access on the first column */
+table img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+tr td > div {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
+tr td > div > span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+tr:nth-child(2) td > div > span {
+  color: #f65c19;
+  background-color: #ffedd4;
+}
+tr:nth-child(3) td > div > span {
+  color: #155dfc;
+  background-color: #dbeafe;
+}
+tr:nth-child(6) td > div > span {
+  color: #e7000b;
+  background-color: #ffe2e2;
+}
+tr:nth-child(7) td > div > span {
+  color: #513cf6;
+  background-color: #e0e7ff;
+}
+tr:nth-child(8) td > div > span {
+  color: #0092b8;
+  background-color: #cefafe;
+}
+tr:nth-child(9) td > div > span {
+  color: #009966;
+  background-color: #d0fae5;
+}
+tbody tr td p {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #101828;
+}
+tbody tr td div p + span {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: #6a7282;
+}
+/* access on the second column */
+tr td:nth-child(2) span {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  padding: 2px 10px;
+  border-radius: 20px;
+}
+
+/* access on the third column */
+tr td:nth-child(3) {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: #4a5565;
+}
+/* access on the fourth column */
+tr td:nth-child(4) span {
+  padding: 2px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  color: #016630;
+  background-color: #dbfce7;
+  border-radius: 20px;
+}
+tr td:nth-child(4) span.uncompleted {
+  background-color: #fef9c2;
+  color: #894b00;
+}
+
+/* access on the fiveth column */
+tr td:nth-child(5) {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: #101828;
+}
+tr td:nth-child(5).greenPrice {
+  color: #00a63e;
+}
+
+/* ------------------------income section----------- */
+
+.income {
+  grid-area: income;
+  padding: 24px;
+  border: 1px solid #ebe6e7;
+  border-radius: 16px;
+  background-color: white;
+}
+.aboutIncome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 40px;
+  margin-right: 20px;
+}
+.income p {
+  position: relative;
+  line-height: 18px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #64748b;
+}
+.aboutIncome p::before {
+  content: "";
+  position: absolute;
+  right: -20px;
+  top: 3px;
+  height: 12px;
+  width: 12px;
+  border-radius: 3px;
+}
+.aboutIncome p:first-child::before {
+  background-color: #10b981;
+}
+.aboutIncome p:last-child::before {
+  background-color: #ef4444;
+}
+.income .weeks {
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.income .weeks > div {
+  width: 24%;
+  text-align: center;
+}
+.incomePercentage {
+  height: 150px;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  column-gap: 3px;
+}
+.incomePercentage > div {
+  width: 16px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  margin-bottom: 10px;
+}
+.incomePercentage div:first-child {
+  height: 95px;
+  background-color: #10b981;
+}
+.incomePercentage div:last-child {
+  height: 45px;
+  background-color: #ef4444;
+}
+
+/* -----------------------accountSummary section-------------- */
+
+.accountSummary {
+  grid-area: accountSummary;
+  padding: 24px;
+  border: 1px solid #ebe6e7;
+  border-radius: 16px;
+  background-color: white;
+}
+
+.accountSummary .accounts > div {
+  background-color: #f9fafb;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  border-radius: 12px;
+  border: 1px solid #f6f3f4;
+}
+.accountSummary .accounts div.account3 {
+  margin-bottom: 0;
+}
+
+.accounts .leftAccount {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.accounts .leftAccount div p:first-child {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  color: #101828;
+}
+.accounts .leftAccount div p:last-child {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  color: #6a7282;
+}
+
+.accounts .leftAccount span {
+  height: 40px;
+  width: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.accounts span i {
+  font-size: 16px;
+}
+.account1 span {
+  color: #155dfc;
+  background-color: #dbeafe;
+}
+.account2 span {
+  color: #00a63e;
+  background-color: #dbfce7;
+}
+.account3 span {
+  color: #9810fa;
+  background-color: #f3e8ff;
+}
+
+.rightAccount p {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  color: #101828;
+}
+.account3 .rightAccount p:last-child {
+  color: #e7000b;
+}
+
+/* --------------------------------visa section--------------- */
+
+.visaCards {
+  padding: 24px;
+  border: 1px solid #ebe6e7;
+  border-radius: 16px;
+  background-color: white;
+  grid-area: visa;
+}
+
+.box {
+  height: 220px;
+  position: relative;
+  margin-bottom: 15px;
+  /* عشان تحفظ ال 3d  */
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease-in;
+}
+.box:hover {
+  /* البوكس هيلف */
+  transform: rotateY(180deg);
+}
+.box .front {
+  color: white;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* لازم الفرونت و الباك ساخدوا الخاصية دي  */
+  backface-visibility: hidden;
+}
+.box .back {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* لازم الفرونت و الباك ساخدوا الخاصية دي  */
+  backface-visibility: hidden;
+  transform: rotateY(-180deg);
+}
+.box .front .topVisa {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.box .front .topVisa div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  border-radius: 6px;
+  height: 32px;
+  background-color: #fff3;
+}
+.box .front .topVisa div:first-child span {
+  background-color: #fff6;
+  width: 24px;
+  height: 16px;
+  border-radius: 4px;
+}
+.middleVisa {
+  font-family: monospace;
+  font-size: 23px;
+  font-weight: 900;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+.bottomVisa {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.bottomVisa div:first-child span {
+  font-size: 12px;
+  line-height: 1.3333;
+  color: #dbeafe;
+}
+.bottomVisa div:first-child p {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.bottomVisa div:last-child span {
+  color: #dbeafe;
+  font-size: 12px;
+  line-height: 1.3333;
+}
+.bottomVisa div:last-child p {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.box img {
+  width: 40px;
+  height: 40px;
+  border-radius: 16px;
+}
+.visa .front::after {
+  position: absolute;
+  content: "أساسية";
+  background-color: #ffffff24;
+  /* prefix  for safari by searching*/
+  -webkit-backdrop-filter: blur(10px);
+  /* blur on background; */
+  backdrop-filter: blur(4px);
+  /* filter : blur();  on the element */
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 24px;
+  top: 10px;
+  left: 12px;
+}
+.visa .front {
+  padding: 28px;
+  border-radius: 16px;
+  background-color: #372aac;
+}
+/* back card */
+.box .back {
+  padding: 18px;
+  border-radius: 16px;
+  background: linear-gradient(120deg, #051026, #0b1220 45%, #0f1724);
+}
+.box .back .blackLine {
+  background: #000;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(43, 43, 43, 1) 50%
+  );
+  border-radius: 3px;
+  height: 40px;
+  margin-top: 8px;
+}
+.box .back p {
+  color: #ffffff7a;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 15px;
+  margin: 5px 0 7px;
+}
+.box .back .whiteLine {
+  height: 26px;
+  background-color: #eef2f6;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  border-radius: 4px;
+}
+.box .back .whiteLine div {
+  width: 86%;
+  height: 10px;
+  border-radius: 3px;
+  background: #e6e8eb;
+  background: linear-gradient(
+    90deg,
+    rgba(230, 232, 235, 1) 0%,
+    rgba(223, 227, 231, 1) 50%
+  );
+}
+.whiteLine span {
+  color: #000000d9;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 22px;
+}
+.box .back .cvv {
+  margin-right: auto;
+  width: 48px;
+}
+.cvv span {
+  color: #d1d5dc;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+}
+.box .back .cvv div {
+  color: #111827;
+  text-align: center;
+  background: #fff;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-weight: 700;
+  width: 48px;
+  text-align: center;
+}
+
+/* master card */
+.mastercard .front {
+  padding: 28px;
+  border-radius: 16px;
+  background-color: #c70036;
+}
+
+/* pypal card */
+.pypal .front {
+  padding: 28px;
+  border-radius: 16px;
+  background-color: #193cb8;
+}
+.pypal .back .cvv {
+  margin-right: auto;
+  width: 80px;
+}
+.pypal .back .cvv div {
+  width: 80px;
+}
+.pypal {
+  margin-bottom: 0;
+}

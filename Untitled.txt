@@ -1,0 +1,10 @@
+ scrollbar-width: thin;
+ scrollbar-color: #9ca3af4d transparent;
+  border-collapse: collapse;
+الدخل مقابل المصروفات   i want to recap how did i do it 
+
+
+filter: blur(10px);
+❌ بيعمل بلر على العنصر نفسه
+backdrop-filter: blur(10px);
+✅ بيعمل بلر على الخلفية اللي وراه
