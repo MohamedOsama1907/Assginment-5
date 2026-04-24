@@ -89,9 +89,6 @@ button {
   scrollbar-color: #9ca3af4d transparent;
 }
 
-/* @media (min-width: 768px) {
-  
-} */
 .logo {
   display: flex;
   align-items: center;
@@ -253,10 +250,24 @@ button {
   font-size: 14px;
 }
 .connected .animated-point {
-  background-color: #00c950;
+  background-color: #01b348;
   border-radius: 50%;
   width: 10px;
   height: 10px;
+  opacity: 1;
+  animation: connectedTag 2s ease-out infinite;
+}
+
+@keyframes connectedTag {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .leftHeader {
   display: flex;
@@ -380,248 +391,6 @@ section.accountDetails {
 .mobile {
   display: none;
 }
-@media (max-width: 667px) {
-  .content div.header {
-    flex-direction: column;
-    row-gap: 20px;
-    justify-content: space-between;
-  }
-
-  .header .leftHeader .mudabirAccount span {
-    display: none;
-  }
-  .content .header div.rightHeader {
-    flex-direction: column;
-    align-self: flex-start;
-  }
-  .content .header div.rightHeader .connected {
-    display: none;
-  }
-  .content .header div.leftHeader {
-    column-gap: 8px;
-    width: 100%;
-  }
-  .leftHeader > div:first-child {
-    display: flex;
-    column-gap: 10px;
-  }
-  .mobile {
-    width: 100%;
-    display: block;
-    text-align: center;
-  }
-  .mobile.connected .animated-point {
-    display: inline-block;
-    background-color: #00c950;
-    border-radius: 50%;
-    width: 10px;
-    height: 10px;
-    margin-left: 10px;
-  }
-}
-@media (max-width: 767px) {
-  .sideBar {
-    display: none;
-  }
-  /* عشان ميحصلش اوفر رايد عليها لانها نفس  الاسباسيفيتي div.content  لازم احط   */
-  div.content {
-    padding: 16px 16px 32px;
-  }
-  .content .header {
-    padding: 16px;
-  }
-  .header .rightHeader .logo span {
-    width: 48px;
-    height: 48px;
-  }
-  .header .rightHeader .logo h1 {
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 32px;
-  }
-  .header .rightHeader .logo h1 + span {
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 16px;
-  }
-  .header .rightHeader .connected span {
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 16px;
-  }
-  .header .leftHeader div.mudabirAccount {
-    column-gap: 3px;
-    padding: 8px 12px;
-    align-self: flex-end;
-  }
-  .header .leftHeader .mudabirAccount span {
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 16px;
-  }
-  .header .leftHeader .mudabirAccount p {
-    display: none;
-  }
-  section.accountDetails {
-    grid-template-columns: 1fr;
-    row-gap: 20px;
-  }
-  .accountDetails > div > p {
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 36px;
-  }
-  section div.container {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(7, auto);
-    grid-template-areas:
-      "activities"
-      "table"
-      "monthlyBills"
-      "budget"
-      "income "
-      "accountSummary"
-      "visa";
-  }
-  .container .activities h5 {
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 24px;
-  }
-  .activities .aboutCard h5,
-  .table .aboutCard h5 {
-    font-size: 16px;
-    font-weight: 600;
-    line-height: 24px;
-  }
-  .activities .aboutCard span,
-  .table .aboutCard span {
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 16px;
-  }
-  table thead tr {
-    font-weight: 600 !important;
-    line-height: 16px !important;
-    font-size: 12px !important;
-  }
-  table tbody tr > * {
-    font-weight: 500 !important;
-    line-height: 16px !important;
-    font-size: 12px !important;
-  }
-}
-@media (min-width: 768px) and (max-width: 1280px) {
-  .accountDetails > div > p {
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 32px;
-  }
-  .sideBar {
-    width: 64px;
-    padding: 12px;
-    overflow: hidden;
-  }
-  .sideBar .logo > div {
-    display: none;
-  }
-  .sideBar .barContent .mainContent {
-    margin-bottom: 50px;
-  }
-  .sideBar .mainContent a {
-    display: block;
-  }
-  .sideBar .logo > span {
-    width: 40px;
-    height: 40px;
-  }
-  .sideBar .logo > span i {
-    font-size: 15px;
-  }
-  .sideBar .mainContent div {
-    padding: 12px 8px;
-  }
-  .mainContent > div a span:last-child {
-    display: none;
-  }
-  .sideBar .barContent h4 {
-    display: none;
-  }
-  .barContent .otherContent div {
-    padding: 0;
-    margin-bottom: 32px;
-  }
-  .sideBar .barContent .otherContent span {
-    width: 40px;
-    height: 40px;
-  }
-  .sideBar .barContent .otherContent p {
-    display: none;
-  }
-  .content {
-    padding: 32px calc(32px + 64px) 32px 32px;
-  }
-  /* sepcificity */
-  div.container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto auto auto;
-    grid-auto-columns: 1fr;
-    gap: 15px;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "activities income"
-      "table table"
-      "monthlyBills accountSummary"
-      "budget visa"
-      "budget visa"
-      /* . => make the card empty */
-      "budget  .";
-  }
-  .budget .budgetCard .aboutBudget {
-    flex-direction: column;
-  }
-  .budget .budgetCard .aboutBudget .totalBudget {
-    width: 100%;
-  }
-  .remainingBudget {
-    align-self: flex-end;
-  }
-  div.budget .anthorBudgetCard > div > div {
-    flex-direction: column;
-  }
-  div.budget .anthorBudgetCard > div div.rightBudget {
-    width: 100%;
-  }
-  .leftBudget {
-    align-self: flex-end;
-  }
-  .budget .anthorBudgetCard > div > div {
-    align-items: flex-start;
-  }
-  .accountSummary .accounts > div {
-    flex-direction: column;
-  }
-  .accountSummary .accounts > div .leftAccount {
-    align-self: flex-start;
-  }
-  .accountSummary .accounts > div .rightAccount {
-    align-self: flex-end;
-  }
-}
-
-@media (min-width: 1023px) {
-  .accountDetails > div > p {
-    font-size: 36px;
-    font-weight: 700;
-    line-height: 40px;
-  }
-  .barContent .otherContent div:hover {
-    background-color: #f9fafb;
-    padding-right: 10px;
-  }
-}
-
 /* the last section */
 .container {
   display: grid;
@@ -1011,9 +780,25 @@ section.accountDetails {
   margin-top: 10px;
 }
 
+/* advanced think to save the time of repeating the animation code to each inner div
+    we use css variable for each innerDiv and make the animation on all 
+    and make the animation key by using css variable
+*/
+@keyframes percentage {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: var(--taget-width);
+  }
+}
+.innerDiv {
+  animation: percentage 1.2s ease-out 1;
+}
 .funny + .percentage .innerDiv {
   height: 100%;
-  width: 50%;
+  --taget-width: 50%;
+  width: var(--taget-width);
   border-radius: 12px;
   background-color: #f54900;
 }
@@ -1032,7 +817,8 @@ section.accountDetails {
 
 .bills + .percentage .innerDiv {
   height: 100%;
-  width: 100%;
+  --taget-width: 100%;
+  width: var(--taget-width);
   border-radius: 12px;
   background-color: #e7000b;
 }
@@ -1051,7 +837,8 @@ section.accountDetails {
 
 .care + .percentage .innerDiv {
   height: 100%;
-  width: 80%;
+  --taget-width: 80%;
+  width: var(--taget-width);
   border-radius: 12px;
   background-color: #e60076;
 }
@@ -1070,7 +857,8 @@ section.accountDetails {
 
 .supplies + .percentage .innerDiv {
   height: 100%;
-  width: 86%;
+  --taget-width: 86%;
+  width: var(--taget-width);
   border-radius: 12px;
   background-color: #00a63e;
 }
@@ -1083,8 +871,7 @@ section.accountDetails {
   border-radius: 16px;
   background-color: white;
   overflow-x: auto;
-  scrollbar-width: thin;
-  scrollbar-color: #9ca3af4d transparent;
+  scrollbar-color: #9ca3af4d;
 }
 
 table {
@@ -1575,4 +1362,248 @@ tr td:nth-child(5).greenPrice {
 }
 .pypal {
   margin-bottom: 0;
+}
+
+/* --------------------------------responsive part------------------------ */
+
+@media (max-width: 667px) {
+  .content div.header {
+    flex-direction: column;
+    row-gap: 20px;
+    justify-content: space-between;
+  }
+
+  .header .leftHeader .mudabirAccount span {
+    display: none;
+  }
+  .content .header div.rightHeader {
+    flex-direction: column;
+    align-self: flex-start;
+  }
+  .content .header div.rightHeader .connected {
+    display: none;
+  }
+  .content .header div.leftHeader {
+    column-gap: 8px;
+    width: 100%;
+  }
+  .leftHeader > div:first-child {
+    display: flex;
+    column-gap: 10px;
+  }
+  .mobile {
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
+  .mobile.connected .animated-point {
+    display: inline-block;
+    background-color: #00c950;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    margin-left: 10px;
+  }
+}
+@media (max-width: 767px) {
+  .sideBar {
+    display: none;
+  }
+  /* عشان ميحصلش اوفر رايد عليها لانها نفس  الاسباسيفيتي div.content  لازم احط   */
+  div.content {
+    padding: 16px 16px 32px;
+  }
+  .content .header {
+    padding: 16px;
+  }
+  .header .rightHeader .logo span {
+    width: 48px;
+    height: 48px;
+  }
+  .header .rightHeader .logo h1 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+  }
+  .header .rightHeader .logo h1 + span {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+  }
+  .header .rightHeader .connected span {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+  }
+  .header .leftHeader div.mudabirAccount {
+    column-gap: 3px;
+    padding: 8px 12px;
+    align-self: flex-end;
+  }
+  .header .leftHeader .mudabirAccount span {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+  }
+  .header .leftHeader .mudabirAccount p {
+    display: none;
+  }
+  section.accountDetails {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+  .accountDetails > div > p {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 36px;
+  }
+  section div.container {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(7, auto);
+    grid-template-areas:
+      "activities"
+      "table"
+      "monthlyBills"
+      "budget"
+      "income "
+      "accountSummary"
+      "visa";
+  }
+  .container .activities h5 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+  }
+  .activities .aboutCard h5,
+  .table .aboutCard h5 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+  }
+  .activities .aboutCard span,
+  .table .aboutCard span {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+  }
+  table thead tr {
+    font-weight: 600 !important;
+    line-height: 16px !important;
+    font-size: 12px !important;
+  }
+  table tbody tr > * {
+    font-weight: 500 !important;
+    line-height: 16px !important;
+    font-size: 12px !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 1280px) {
+  .accountDetails > div > p {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+  }
+  .sideBar {
+    width: 64px;
+    padding: 12px;
+    overflow: hidden;
+  }
+  .sideBar .logo > div {
+    display: none;
+  }
+  .sideBar .barContent .mainContent {
+    margin-bottom: 50px;
+  }
+  .sideBar .mainContent a {
+    display: block;
+  }
+  .sideBar .logo > span {
+    width: 40px;
+    height: 40px;
+  }
+  .sideBar .logo > span i {
+    font-size: 15px;
+  }
+  .sideBar .mainContent div {
+    padding: 12px 8px;
+  }
+  .mainContent > div a span:last-child {
+    display: none;
+  }
+  .sideBar .barContent h4 {
+    display: none;
+  }
+  .barContent .otherContent div {
+    padding: 0;
+    margin-bottom: 32px;
+  }
+  .sideBar .barContent .otherContent span {
+    width: 40px;
+    height: 40px;
+  }
+  .sideBar .barContent .otherContent p {
+    display: none;
+  }
+  .content {
+    padding: 32px calc(32px + 64px) 32px 32px;
+  }
+  /* sepcificity */
+  div.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto auto auto;
+    grid-auto-columns: 1fr;
+    gap: 15px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "activities income"
+      "table table"
+      "monthlyBills accountSummary"
+      "budget visa"
+      "budget visa"
+      /* . => make the card empty */
+      "budget  .";
+  }
+  .budget .budgetCard .aboutBudget {
+    flex-direction: column;
+  }
+  .budget .budgetCard .aboutBudget .totalBudget {
+    width: 100%;
+  }
+  .remainingBudget {
+    align-self: flex-end;
+  }
+  div.budget .anthorBudgetCard > div > div {
+    flex-direction: column;
+  }
+  div.budget .anthorBudgetCard > div div.rightBudget {
+    width: 100%;
+  }
+  .leftBudget {
+    align-self: flex-end;
+  }
+  .budget .anthorBudgetCard > div > div {
+    align-items: flex-start;
+  }
+  .accountSummary .accounts > div {
+    flex-direction: column;
+  }
+  .accountSummary .accounts > div .leftAccount {
+    align-self: flex-start;
+  }
+  .accountSummary .accounts > div .rightAccount {
+    align-self: flex-end;
+  }
+}
+
+@media (min-width: 1023px) {
+  .accountDetails > div > p {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 40px;
+  }
+  .barContent .otherContent div:hover {
+    background-color: #f9fafb;
+    padding-right: 10px;
+  }
 }
