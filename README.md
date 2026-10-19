@@ -46,7 +46,7 @@ A responsive financial dashboard built using HTML5 & CSS3, designed to manage pe
 ---
 ## 🔗 Live Demo
 
-👉 https://mohamedosama1907.github.io/Assignment-5/
+👉 https://mohamedosama1907.github.io/Assginment-5
 
 ## 💻 Source Code
 
